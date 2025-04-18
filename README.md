@@ -48,18 +48,21 @@ curl http://localhost:9000/health
 ```
 
 ### 4. Prediction
-- Predict Price (Single)
+- Predict Price (Single)\
 curl -X POST http://localhost:9000/predict \
      -H "Content-Type: application/json" \
      -d '{"features": [7420, 4, 2, 3, "yes", "no", "no", "no", "yes", 2, "yes", "furnished"]}'
-- Predict Price (Multiple)
 
+Expected Output: {"predicted_price":11181018.8}
+- Predict Price (Multiple)\
 curl -X POST http://localhost:9000/predict \
      -H "Content-Type: application/json" \
      -d '{"features": [
           [7420, 4, 2, 3, "yes", "no", "no", "no", "yes", 2, "yes", "furnished"],
           [8960, 4, 4, 4, "yes", "no", "no", "no", "yes", 3, "no", "furnished"]
      ]}'
+
+Expected Output:{"predicted_prices":[11181018.8,11269959.4]}
 
 ### Input Format
 [area, bedrooms, bathrooms, stories,
